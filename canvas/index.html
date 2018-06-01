@@ -10,13 +10,26 @@
     <title>我的画板</title>
 </head>
 
-<body style="margin:0;">
-    <canvas id='xxx' width='300' height='300' style='background:blue;display: block;'></canvas>
-    <div id='active' class="active">
-        <button id="eraser" style="position: fixed; bottom: 0;left: 0;">橡皮擦</button>
-        <button id="pen" style="position: fixed; bottom: 0;left: 0;">画笔</button>
+<body>
+    <canvas id='xxx' width='300' height='300' style='background:whitesmoke;display: block;'></canvas>
+    <div class="actions">
+        <svg id='pen' class="icon">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg id='eraser' class="icon">
+            <use xlink:href="#icon-xiangpica_s"></use>
+        </svg>
+        <ol class="colors">
+            <li id="black" class="black"></li>
+            <li id="red" class="red"></li>
+            <li id="yellow" class="yellow"></li>
+            <li id="blue" class="blue"></li>
+            <li id="green" class="green"></li>
+        </ol>
+
     </div>
 </body>
 <script src="./main.js"></script>
+<script src="//at.alicdn.com/t/font_691142_4cob4v04i9seb3xr.js"></script>
 
 </html>

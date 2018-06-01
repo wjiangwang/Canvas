@@ -9,14 +9,88 @@ listenUser(yyy)
 var eraserEnable = false
 eraser.onclick = function () {
     eraserEnable = true
-    active.className = 'activex'
+    eraser.classList.add ('active')
+    pen.classList.remove('active')
 
 }
 pen.onclick = function () {
     eraserEnable = false
-    active.className = 'active'
+    pen.classList.add('active')
+    eraser.classList.remove ('active')
+}
+/*颜色选择*/
+//var colors={red:red,black:black,blue:blue,green:green}
+black.onclick=function( ){
+    ctx.strokeStyle = 'black'
+    black.classList.add('active')
+    yellow.classList.remove ('active')
+    blue.classList.remove ('active')
+    red.classList.remove ('active')
+    green.classList.remove ('active')
+}
+yellow.onclick=function( ){
+    ctx.strokeStyle = 'yellow'
+    yellow.classList.add('active')
+    black.classList.remove ('active')
+    blue.classList.remove ('active')
+    green.classList.remove ('active')
+    red.classList.remove ('active')
+}
+blue.onclick=function( ){
+    ctx.strokeStyle = 'blue'
+    blue.classList.add('active')
+    red.classList.remove ('active')
+    yellow.classList.remove ('active')
+    black.classList.remove ('active')
+    green.classList.remove ('active')
+}
+red.onclick=function( ){
+    ctx.strokeStyle = 'red'
+    red.classList.add('active')
+    blue.classList.remove ('active')
+    yellow.classList.remove ('active')
+    black.classList.remove ('active')
+    green.classList.remove ('active')
+}
+green.onclick=function( ){
+    ctx.strokeStyle = 'green'
+    green.classList.add('active')
+    blue.classList.remove ('active')
+    yellow.classList.remove ('active')
+    black.classList.remove ('active')
+    red.classList.remove ('active')
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function listenUser(canvas) {
