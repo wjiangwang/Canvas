@@ -1,0 +1,14 @@
+
+
+
+.active #pen{
+    display: none;
+
+}
+.activex #pen{
+    display: inline-block;
+
+}
+.activex #eraser{
+    display: none;
+}
