@@ -4,55 +4,96 @@ var ctx = yyy.getContext('2d');
 /****设置屏幕尺寸*****/
 autoWindowSize()
 /*监听鼠标*/
-listenMouse(yyy)
+listenUser(yyy)
 /*橡皮擦*/
 var eraserEnable = false
 eraser.onclick = function () {
     eraserEnable = true
-    active.className= 'activex'
+    active.className = 'activex'
 
 }
 pen.onclick = function () {
     eraserEnable = false
-    active.className= 'active'
+    active.className = 'active'
 
 }
 
 
-function listenMouse(canvas) {
+function listenUser(canvas) {
     var lastPoint = { x: undefined, y: undefined }
     var useing = false
-    canvas.onmousedown = function (aaa) {
-        var x = aaa.clientX
-        var y = aaa.clientY
-        useing = true
-        if (eraserEnable) {
-            ctx.clearRect(x - 5, y - 5, 10, 10)
-        }
-        else {
-            console.log(x, y)
-            lastPoint = { x: x, y: y }
-        }
 
-    }
-    canvas.onmousemove = function (aaa) {
-        var x = aaa.clientX
-        var y = aaa.clientY
-        if (useing) {
+    if ('ontouchstart' in document.body) {//触屏设备
+
+        yyy.ontouchstart = function (aaa) {
+            var x = aaa.touches['0'].clientX
+            var y = aaa.touches['0'].clientY
+            console.log(x,y)
+            useing = true
             if (eraserEnable) {
                 ctx.clearRect(x - 5, y - 5, 10, 10)
             }
             else {
-                var newPoint = { x: x, y: y }
-                drawLine(lastPoint.x, lastPoint.y, x, y)
-                lastPoint = newPoint
+                lastPoint = { x: x, y: y }
             }
+
+
         }
-    }
-    canvas.onmouseup = function (aaa) {
-        useing = false
+        yyy.ontouchmove = function (aaa) {
+            var x = aaa.touches['0'].clientX
+            var y = aaa.touches['0'].clientY
+            if (useing) {
+                if (eraserEnable) {
+                    ctx.clearRect(x - 5, y - 5, 10, 10)
+                }
+                else {
+                    var newPoint = { x: x, y: y }
+                    drawLine(lastPoint.x, lastPoint.y, x, y)
+                    lastPoint = newPoint
+                }
+            }
+
+        }
+        yyy.ontouchend = function (aaa) {
+            useing = false
+
+
+        }
+
     }
 
+    else {
+        canvas.onmousedown = function (aaa) {
+            var x = aaa.clientX
+            var y = aaa.clientY
+            useing = true
+            if (eraserEnable) {
+                ctx.clearRect(x - 5, y - 5, 10, 10)
+            }
+            else {
+                lastPoint = { x: x, y: y }
+            }
+
+        }
+        canvas.onmousemove = function (aaa) {
+            var x = aaa.clientX
+            var y = aaa.clientY
+            if (useing) {
+                if (eraserEnable) {
+                    ctx.clearRect(x - 5, y - 5, 10, 10)
+                }
+                else {
+                    var newPoint = { x: x, y: y }
+                    drawLine(lastPoint.x, lastPoint.y, x, y)
+                    lastPoint = newPoint
+                }
+            }
+        }
+        canvas.onmouseup = function (aaa) {
+            useing = false
+        }
+
+    }
 }
 
 
@@ -76,3 +117,6 @@ function autoWindowSize() {
         getWH()
     }
 }
+
+
+
