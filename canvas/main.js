@@ -70,6 +70,7 @@ green.onclick = function () {
 
 
 /*画笔粗细*/
+var lineWidth = 5
 thin.onclick = function () {
     lineWidth = 5
 }
