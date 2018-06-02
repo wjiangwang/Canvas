@@ -5,9 +5,15 @@ ol,li{ list-style:none}
 body{
     margin: 0;
     overflow: hidden;
+}  
+
+#xxx{
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+
 }
-
-
 
 .icon {
     width: 1.5em; height: 1.5em;
@@ -23,11 +29,19 @@ body{
     position: fixed;
     top: 1em;
     left: 1em;
+    margin: 0 8px;
     
 
  }
 
-
+#clear:active{
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
+#save:active{
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
 
 .actions svg.active{
     fill:orangered;
@@ -80,4 +94,21 @@ body{
 }
 .colors li.green.active{
     transform: scale(1.2)
+}
+.lineWidth{
+    position: fixed;
+    top: 50px;
+    right: 6px;
+}
+
+.lineWidth li{
+    margin: 14px;
+    width: 36px;
+
+}
+#thin{
+    border-top: 3px solid black;
+}
+#thick{
+    border-top: 7px solid black;
 }

@@ -11,13 +11,19 @@
 </head>
 
 <body>
-    <canvas id='xxx' width='300' height='300' style='background:whitesmoke;display: block;'></canvas>
+    <canvas id='xxx' width='300' height='300'></canvas>
     <div class="actions">
         <svg id='pen' class="icon">
             <use xlink:href="#icon-pen"></use>
         </svg>
         <svg id='eraser' class="icon">
             <use xlink:href="#icon-xiangpica_s"></use>
+        </svg>
+        <svg id='clear' class="icon">
+            <use xlink:href="#icon-clear1"></use>
+        </svg>
+        <svg id='save' class="icon">
+            <use xlink:href="#icon-save1"></use>
         </svg>
         <ol class="colors">
             <li id="black" class="black"></li>
@@ -26,10 +32,12 @@
             <li id="blue" class="blue"></li>
             <li id="green" class="green"></li>
         </ol>
-
+        <ol class="lineWidth">
+            <li id='thin'></li>
+            <li id='thick'></li>
+        </ol>
     </div>
 </body>
 <script src="./main.js"></script>
-<script src="//at.alicdn.com/t/font_691142_4cob4v04i9seb3xr.js"></script>
-
+<script src="//at.alicdn.com/t/font_691142_nvrcitayu2qpvi.js"></script>
 </html>
